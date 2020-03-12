@@ -247,10 +247,18 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Default.aspx" />
+    <Content Include="Instructor\Screens\Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="Student\Screens\Drop.aspx" />
+    <Content Include="Student\Screens\Enroll.aspx" />
+    <Content Include="Student\Screens\Home.aspx" />
+    <Content Include="Student\Screens\Schedule.aspx" />
+    <Content Include="Student\Screens\SelectMajMin.aspx" />
+    <Content Include="Student\Screens\StudentAccount.aspx" />
+    <Content Include="Student\Screens\ViewCourses.aspx" />
+    <Content Include="Student\Style\StyleSheet1.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -258,6 +266,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
+    <Content Include="Student.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -389,11 +398,11 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="Instructor\Screens\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="Instructor\Screens\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -444,6 +453,62 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="Student\Screens\Drop.aspx.cs">
+      <DependentUpon>Drop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Screens\Drop.aspx.designer.cs">
+      <DependentUpon>Drop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Screens\Enroll.aspx.cs">
+      <DependentUpon>Enroll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Screens\Enroll.aspx.designer.cs">
+      <DependentUpon>Enroll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Screens\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Screens\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student.Master.cs">
+      <DependentUpon>Student.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student.Master.designer.cs">
+      <DependentUpon>Student.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Screens\Schedule.aspx.cs">
+      <DependentUpon>Schedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Screens\Schedule.aspx.designer.cs">
+      <DependentUpon>Schedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Screens\SelectMajMin.aspx.cs">
+      <DependentUpon>SelectMajMin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Screens\SelectMajMin.aspx.designer.cs">
+      <DependentUpon>SelectMajMin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Screens\StudentAccount.aspx.cs">
+      <DependentUpon>StudentAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Screens\StudentAccount.aspx.designer.cs">
+      <DependentUpon>StudentAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Screens\ViewCourses.aspx.cs">
+      <DependentUpon>ViewCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Screens\ViewCourses.aspx.designer.cs">
+      <DependentUpon>ViewCourses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

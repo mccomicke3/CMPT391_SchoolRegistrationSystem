@@ -1,12 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Schedule.aspx.cs" Inherits="schoolreg.Instructor.Screens.Schedule" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="Drop.aspx.cs" Inherits="schoolreg.Student.Screens.Drop" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label runat="server" ID="Label_title" CssClass="title-header">Schedule</asp:Label>
+    <asp:Label runat="server" ID="Label_title" CssClass="title-header">Drop</asp:Label>
     <hr />
        <link href="../Style/StyleSheet1.css" rel="stylesheet" />
     <div class="panel-body">
         <div class="col-lg-12">
-            <div class="row">
                 <div class="row">
                     <div class="col-md-3">
 			            <asp:Label runat="server" CssClass="signup-input-header">Select Semester</asp:Label>
@@ -17,14 +16,13 @@
                             <asp:ListItem Text="OneMore" Value="12"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
+                </div>
+                <div class="row" style="margin-top:20px">
                     <div class="col-md-3">
-                        <div>
-                            <asp:Button ID="FirstButton" runat="server" Text="Class Page" Height="35px" CssClass="mybutton" PostBackUrl="~/Instructor/Screens/SubmitGrades.aspx" />
-                        </div>
+                        <asp:Label runat="server" CssClass="signup-input-header">Classes</asp:Label>
                     </div>
                 </div>
-                <div class="col-md-6" style="margin-top: 20px">
-			        <asp:Label runat="server" CssClass="signup-input-header">Classes</asp:Label>
+                <div class="col-md-6" style="margin-top: 10px">
                     <div class="row">
                         <asp:ListView ID="ListView1" runat="server">
                             <LayoutTemplate>
@@ -36,6 +34,7 @@
                                         <th>Building</th>
                                         <th>Room</th>
                                         <th>Timeslot</th>
+                                        <th>Drop</th>
                                     </tr>
                                     <tbody>
                                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
@@ -50,6 +49,7 @@
                                     <td><%# Eval("Building")%></td>
                                     <td><%# Eval("Room")%></td>
                                     <td><%# Eval("Timeslot")%></td>
+                                    <td style="align-self: center"><asp:CheckBox ID="CheckBox1" runat="server" /></td>
                                   </tr>
                                </ItemTemplate>
                                <AlternatingItemTemplate>
@@ -60,12 +60,18 @@
                                     <td><%# Eval("Building")%></td>
                                     <td><%# Eval("Room")%></td>
                                     <td><%# Eval("Timeslot")%></td>
+                                    <td><asp:CheckBox ID="CheckBox1" runat="server" /></td>
                                   </tr>
                                </AlternatingItemTemplate>
                         </asp:ListView>
                     </div>
-                </div>
+                    <div class="row" style="margin-top: 20px">
+                        <div class="col-md-3">
+			                <asp:Button ID="LastButton" runat="server" Text="Confirm" Height="35px" CssClass="mybutton"  />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+    </div>
 </asp:Content>
+

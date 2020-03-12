@@ -21,12 +21,12 @@
 			</div>
             <div class="row">
                 <div class="col-md-6">
-			        <asp:Label runat="server" AssociatedControlID="FacilitatorLast" CssClass="signup-input-header" Text="last name">Last Name</asp:Label>
+			        <asp:Label runat="server" AssociatedControlID="FacilitatorLast" CssClass="signup-input-header">Last Name</asp:Label>
                 </div>
             </div>
 			<div class="row">
                 <div class="col-md-6">
-                    <asp:TextBox runat="server" ID="FacilitatorLast" CssClass="inputfields" Width="200px" />
+                    <asp:TextBox runat="server" ID="FacilitatorLast" CssClass="inputfields" Width="200px" Text="last name" />
                 </div>
                 <div>
                     <asp:Button ID="LastButton" runat="server" Text="Rename" Height="35px" CssClass="mybutton"  />

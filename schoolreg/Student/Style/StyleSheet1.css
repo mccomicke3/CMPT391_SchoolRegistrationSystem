@@ -1,0 +1,144 @@
+﻿/* stylelint-disable selector-list-comma-newline-after */
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,,800,900);
+
+.mybutton {
+    /*#4f92ff*/
+    background-color: #130d19;
+    border-radius: 10px;
+    color: white/*#444349*/;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: none;
+    width: auto;
+    cursor: pointer;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    transition: all 0.5s ease;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.mybutton:hover {
+    /*#4f92ff*/
+    background: #719add;
+    text-shadow: 4px 4px 2px #333;
+}
+
+.error-text {
+    font-family: 'Raleway', sans-serif;
+    color: #fd0005;
+}
+
+
+.login-container{
+    height: 600px;
+    margin: auto;
+    padding-top: 75px;
+    max-width: 300px;
+}
+
+.header-link {
+    font-size: 16px;
+    color: #130d19;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+.sign-out:active {
+    color: blue;
+}
+
+.remember-me {
+    font-size: 20px;
+    color: #130d19;
+    font-family: 'Raleway', sans-serif;
+    padding-bottom: 5px;
+}
+
+.forgot-pwd {
+    /*#2767ce*/
+    display: block;
+    color: #130d19;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+    padding-top: 15px;
+}
+
+.forgot-pwd:active {
+    color: blue;
+}
+
+.title-header {
+    letter-spacing: 2px;
+    font-size: 32px;
+    padding-top: 30px;
+}
+
+.input-header {
+    letter-spacing: 2px;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.label-header {
+    letter-spacing: 1px;
+    font-size: 14px;
+    padding-top: 30px;
+}
+
+.signup-input-header {
+    letter-spacing: 2px;
+    font-size: 20px;
+    padding-top: 0px;
+}
+
+
+.inputfields {
+    width: 300px;
+    height: 35px;
+    border: 1px solid #130d19;
+    border-radius: 7px;
+    background-color: rgba(42, 45, 64, 0.2);
+    font-family: "Raleway", sans-serif;
+    padding-left: 5px;
+}
+
+
+.inputfields:focus {
+    /*#4f92ff*/
+    outline: none;
+    border-color: #1d2c3f;
+    box-shadow: 0 0 10px #1d2c3f;
+}
+
+footer {
+    font-family: "Raleway", sans-serif;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", sans-serif;
+    letter-spacing: 2px;
+    background: url('../Images/download.jpg') 150px 100px;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.signupDropDown {
+    width: 200px;
+    height: 35px;
+    border: 1px solid #337ab7;
+    border-radius: 7px;
+    background-color: #f2f2f2;
+    font-family: "Raleway", sans-serif;
+    padding-left: 5px;
+}
+
+
+.signupDropDown:focus {
+    /*#4f92ff*/
+    outline: none;
+    border-color: #1995ad;
+    box-shadow: 0 0 10px #1995ad;
+}
