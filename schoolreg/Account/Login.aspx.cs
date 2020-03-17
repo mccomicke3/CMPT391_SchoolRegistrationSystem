@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using schoolreg.Models;
+using System.Data.SqlClient;
 
 namespace schoolreg.Account
 {
@@ -18,37 +19,61 @@ namespace schoolreg.Account
 
         protected void LogIn(object sender, EventArgs e)
         {
-            if (IsValid)
+            //Connect to Databse
+            SqlConnection conn = new SqlConnection(Globals.conn);
+            conn.Open();
+
+            //Create query string and parameters
+            string query = "select UserID from [Users] where UserID = @username and PasswordHash = @password";
+            SqlCommand getUser = new SqlCommand(query, conn);
+            getUser.Parameters.AddWithValue("@username", Email.Text);
+            getUser.Parameters.AddWithValue("@password", Password.Text);
+            FailureText.Text = Password.Text;
+            ErrorMessage.Visible = true;
+            //Execute Query
+            SqlDataReader userReader = getUser.ExecuteReader();
+
+            //If a user was found, check for admin or recepionist
+            while (userReader.Read())
             {
-                // Validate the user password
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
-
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
-
-                switch (result)
+                string role = IsInRole(conn, userReader.GetString(0));
+                if (role.Equals("Student"))
                 {
-                    case SignInStatus.Success:
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                        break;
-                    case SignInStatus.LockedOut:
-                        Response.Redirect("/Account/Lockout");
-                        break;
-                    case SignInStatus.RequiresVerification:
-                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}", 
-                                                        Request.QueryString["ReturnUrl"],
-                                                        RememberMe.Checked),
-                                          true);
-                        break;
-                    case SignInStatus.Failure:
-                    default:
-                        FailureText.Text = "Invalid login attempt";
-                        ErrorMessage.Visible = true;
-                        break;
+                    conn.Close();
+                    userReader.Close();
+                    Response.Redirect("/Student/Screens/Home.aspx");
                 }
+                else if (role.Equals("Instructor"))
+                {
+                    conn.Close();
+                    userReader.Close();
+                    Response.Redirect("/Instructor/Screens/Default.aspx");
+                }
+                else
+                {
+                    //Admin Screen
+                }
+                return;
             }
+
+            //Invalid login
+            FailureText.Text = "Invalid username or password";
+            ErrorMessage.Visible = true;
+            conn.Close();
+            return;
+        }
+
+        protected String IsInRole(SqlConnection conn, String UserID)
+        {
+            string query = "select Name from [Roles] where ID in (select RoleID from UserRoles1 where UserID = @username)";
+            SqlCommand getRole = new SqlCommand(query, conn);
+            getRole.Parameters.AddWithValue("@username", UserID);
+            //Execute Query
+            SqlDataReader roleReader = getRole.ExecuteReader();
+            roleReader.Read();
+            string roleName = roleReader.GetString(0);
+            roleReader.Close();
+            return roleName;
         }
     }
 }
