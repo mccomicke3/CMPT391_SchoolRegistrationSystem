@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Schedule.aspx.cs" Inherits="schoolreg.Instructor.Screens.Schedule" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label runat="server" ID="Label_title" CssClass="title-header">Schedule</asp:Label>
+    <asp:Label runat="server" ID="Label_title" CssClass="title-header">Departments</asp:Label>
     <hr />
        <link href="../Style/StyleSheet1.css" rel="stylesheet" />
     <div class="panel-body">
