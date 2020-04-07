@@ -20,7 +20,7 @@ namespace schoolreg.Account
         protected void LogIn(object sender, EventArgs e)
         {
             //Connect to Databse
-            SqlConnection conn = new SqlConnection(Globals.conn);
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-CHGMGOF;Initial Catalog=StudentRegistrationSystem;Integrated Security=True");
             conn.Open();
 
             //Create query string and parameters

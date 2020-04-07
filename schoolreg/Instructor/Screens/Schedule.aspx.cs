@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,6 +11,9 @@ namespace schoolreg.Instructor.Screens
 {
     public partial class Schedule : System.Web.UI.Page
     {
+        static string connectionString = "Data Source=DESKTOP-CHGMGOF;Initial Catalog=StudentRegistrationSystem;Integrated Security=True";
+        SqlConnection cnn = new SqlConnection(connectionString);
+
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable table = new DataTable();
@@ -25,6 +29,27 @@ namespace schoolreg.Instructor.Screens
             table.Rows.Add("TestClass4", "3", "Sec4", "Building4", "106", "TueThur 10:30AM - 11:50AM");
             ListView1.DataSource = table;
             ListView1.DataBind();
+        }
+
+        protected void AddClass_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (cnn)
+                {
+                    string query = @"INSERT INTO";
+                    SqlCommand cmd = new SqlCommand(query, cnn);
+                    cnn.Open();
+
+
+                    
+                    cnn.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Exception: " + ex);
+            }
         }
     }
 }

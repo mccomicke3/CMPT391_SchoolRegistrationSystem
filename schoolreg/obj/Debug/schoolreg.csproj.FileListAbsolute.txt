@@ -153,6 +153,8 @@ C:\Users\katie\Documents\Github\CMPT391_SchoolRegistrationSystem\schoolreg\bin\M
 C:\Users\katie\Documents\Github\CMPT391_SchoolRegistrationSystem\schoolreg\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\katie\Documents\Github\CMPT391_SchoolRegistrationSystem\schoolreg\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\katie\Documents\Github\CMPT391_SchoolRegistrationSystem\schoolreg\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\katie\Documents\Github\CMPT391_SchoolRegistrationSystem\schoolreg\obj\Debug\schoolreg.csprojResolveAssemblyReference.cache
 C:\Users\katie\Documents\Github\CMPT391_SchoolRegistrationSystem\schoolreg\obj\Debug\schoolreg.dll
 C:\Users\katie\Documents\Github\CMPT391_SchoolRegistrationSystem\schoolreg\obj\Debug\schoolreg.pdb
+C:\Users\katie\Documents\Github\CMPT391_SchoolRegistrationSystem\schoolreg\obj\Debug\schoolreg.csprojAssemblyReference.cache
+C:\Users\katie\Documents\Github\CMPT391_SchoolRegistrationSystem\schoolreg\obj\Debug\schoolreg.csproj.CoreCompileInputs.cache
+C:\Users\katie\Documents\Github\CMPT391_SchoolRegistrationSystem\schoolreg\obj\Debug\schoolreg.csproj.CopyComplete
