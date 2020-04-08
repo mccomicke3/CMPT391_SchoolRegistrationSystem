@@ -24,12 +24,13 @@ namespace schoolreg.Account
             conn.Open();
 
             //Create query string and parameters
-            string query = "select UserID from [Users] where UserID = @username and PasswordHash = @password";
-            SqlCommand getUser = new SqlCommand(query, conn);
+            //string query = "select UserID from [Users] where UserID = @username and PasswordHash = @password";
+            SqlCommand getUser = new SqlCommand("getUser", conn);
+            getUser.CommandType = System.Data.CommandType.StoredProcedure;
             getUser.Parameters.AddWithValue("@username", Email.Text);
             getUser.Parameters.AddWithValue("@password", Password.Text);
             //FailureText.Text = Password.Text;
-            ErrorMessage.Visible = true;
+            //ErrorMessage.Visible = true;
             //Execute Query
             SqlDataReader userReader = getUser.ExecuteReader();
 
@@ -67,8 +68,9 @@ namespace schoolreg.Account
         {
             string UserID = userReader.GetString(0);
             userReader.Close();
-            string query = "select Name from [Roles] where ID in (select RoleID from UserRoles1 where UserID = @username)";
-            SqlCommand getRole = new SqlCommand(query, conn);
+            //string query = "select Name from [Roles] where ID in (select RoleID from UserRoles1 where UserID = @username)";
+            SqlCommand getRole = new SqlCommand("getUserRole", conn);
+            getRole.CommandType = System.Data.CommandType.StoredProcedure;
             getRole.Parameters.AddWithValue("@username", UserID);
             //Execute Query
             SqlDataReader roleReader = getRole.ExecuteReader();
