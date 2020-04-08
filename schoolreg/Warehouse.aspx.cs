@@ -29,9 +29,13 @@ namespace schoolreg
 
         protected void GetDropDownCourses(SqlConnection conn)
         {
-            string query = "select top 16 CName from [Course]";
+            //string query = "select top 16 CName from [Course]";
+            SqlCommand cmd = new SqlCommand("getWarehouseCourses", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataAdapter adpt = new SqlDataAdapter();
+            adpt.SelectCommand = cmd;
+
             DataTable dt = new DataTable();
-            SqlDataAdapter adpt = new SqlDataAdapter(query, conn);
             adpt.Fill(dt);
             courseDrop.DataSource = dt;
             courseDrop.DataBind();
@@ -43,9 +47,13 @@ namespace schoolreg
 
         protected void GetDropDownFaculty(SqlConnection conn)
         {
-            string query = "select distinct DFaculty from [Department]";
+            //string query = "select distinct DFaculty from [Department]";
+            SqlCommand cmd = new SqlCommand("getWarehouseDepartments", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataAdapter adpt = new SqlDataAdapter();
+            adpt.SelectCommand = cmd;
+
             DataTable dt = new DataTable();
-            SqlDataAdapter adpt = new SqlDataAdapter(query, conn);
             adpt.Fill(dt);
             facDrop.DataSource = dt;
             facDrop.DataBind();
@@ -56,9 +64,13 @@ namespace schoolreg
 
         protected void GetDropDownDepartment(SqlConnection conn)
         {
-            string query = "select top 14 DName from [Department]";
+            //string query = "select top 14 DName from [Department]";
+            SqlCommand cmd = new SqlCommand("getWarehouseDepartmentsFull", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataAdapter adpt = new SqlDataAdapter();
+            adpt.SelectCommand = cmd;
+
             DataTable dt = new DataTable();
-            SqlDataAdapter adpt = new SqlDataAdapter(query, conn);
             adpt.Fill(dt);
             deptDrop.DataSource = dt;
             deptDrop.DataBind();
@@ -69,9 +81,13 @@ namespace schoolreg
 
         protected void GetDropDownYear(SqlConnection conn)
         {
-            string query = "select Distinct Year from [Semester]";
+            //string query = "select Distinct Year from [Semester]";
+            SqlCommand cmd = new SqlCommand("getWarehouseYears", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataAdapter adpt = new SqlDataAdapter();
+            adpt.SelectCommand = cmd;
+
             DataTable dt = new DataTable();
-            SqlDataAdapter adpt = new SqlDataAdapter(query, conn);
             adpt.Fill(dt);
             yearDrop.DataSource = dt;
             yearDrop.DataBind();
@@ -82,9 +98,13 @@ namespace schoolreg
 
         protected void GetDropDownInstructor(SqlConnection conn)
         {
-            string query = "select top 10 IName from [Instructor]";
+            //string query = "select top 10 IName from [Instructor]";
+            SqlCommand cmd = new SqlCommand("getWarehouseInstructors", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataAdapter adpt = new SqlDataAdapter();
+            adpt.SelectCommand = cmd;
+
             DataTable dt = new DataTable();
-            SqlDataAdapter adpt = new SqlDataAdapter(query, conn);
             adpt.Fill(dt);
             instrDrop.DataSource = dt;
             instrDrop.DataBind();
