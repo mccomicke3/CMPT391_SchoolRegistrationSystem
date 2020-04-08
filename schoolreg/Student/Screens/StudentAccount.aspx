@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="StudentAccount.aspx.cs" Inherits="schoolreg.Student.Screens.StudentAccount" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Student1.Master" AutoEventWireup="true" CodeBehind="StudentAccount.aspx.cs" Inherits="schoolreg.Student.Screens.StudentAccount" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <asp:Label runat="server" ID="Label_title" CssClass="title-header">Account</asp:Label>

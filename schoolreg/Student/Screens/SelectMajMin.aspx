@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="SelectMajMin.aspx.cs" Inherits="schoolreg.Student.Screens.SelectMajMin" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Student1.Master" AutoEventWireup="true" CodeBehind="SelectMajMin.aspx.cs" Inherits="schoolreg.Student.Screens.SelectMajMin" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <asp:Label runat="server" ID="Label_title" CssClass="title-header">Course History</asp:Label>

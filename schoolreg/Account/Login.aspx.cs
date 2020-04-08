@@ -20,7 +20,7 @@ namespace schoolreg.Account
         protected void LogIn(object sender, EventArgs e)
         {
             //Connect to Databse
-            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-CHGMGOF;Initial Catalog=StudentRegistrationSystem;Integrated Security=True");
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-3CQFTT1;Initial Catalog=StudentRegistrationSystem;Integrated Security=True;MultipleActiveResultSets=true");
             conn.Open();
 
             //Create query string and parameters
@@ -41,7 +41,7 @@ namespace schoolreg.Account
                 {
                     conn.Close();
                     userReader.Close();
-                    Response.Redirect("/Student/Screens/Home.aspx");
+                    Response.Redirect("/Student/Screens/Home.aspx?ID=" + Email.Text);
                 }
                 else if (role.Equals("Instructor"))
                 {
@@ -65,7 +65,7 @@ namespace schoolreg.Account
 
         protected String IsInRole(SqlConnection conn, String UserID)
         {
-            string query = "select Name from [Roles] where ID in (select RoleID from UserRoles1 where UserID = @username)";
+            string query = "select Name from [Roles] where ID in (select RoleID from UserRoles where UserID = @username)";
             SqlCommand getRole = new SqlCommand(query, conn);
             getRole.Parameters.AddWithValue("@username", UserID);
             //Execute Query

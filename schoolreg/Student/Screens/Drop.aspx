@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="Drop.aspx.cs" Inherits="schoolreg.Student.Screens.Drop" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Student1.Master" AutoEventWireup="true" CodeBehind="Drop.aspx.cs" Inherits="schoolreg.Student.Screens.Drop" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Label runat="server" ID="Label_title" CssClass="title-header">Drop</asp:Label>
@@ -26,7 +26,7 @@
                     <div class="row">
                         <asp:ListView ID="ListView1" runat="server">
                             <LayoutTemplate>
-                                <table style="border: solid 2px #333333; width: 600px" CellSpacing="0" CellPadding="3" rules="all">
+                                <table style="border: solid 2px #333333; width: 600px">
                                     <tr style="background-color: #333333; color: White;">
                                         <th>Course</th>
                                         <th>Credits</th>
