@@ -9,8 +9,13 @@
             <div class="row">
                 <div class="row">
                     <div class="col-md-3">
+                        <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
+                            <p class="text-danger">
+                                <asp:Literal runat="server" ID="FailureText" />
+                            </p>
+                        </asp:PlaceHolder>
 			            <asp:Label runat="server" CssClass="signup-input-header">Select Major</asp:Label>
-                        <asp:DropDownList ID="dept" runat="server" CssClass="signupDropDown" style="margin-top: 10px">
+                        <asp:DropDownList ID="majorDrop" runat="server" CssClass="signupDropDown" style="margin-top: 10px">
                             <asp:ListItem Enabled="true" Text="Major" Value="-1"></asp:ListItem>
                             <asp:ListItem Text="TestMajor" Value="1"></asp:ListItem>
                             <asp:ListItem Text="MajorTest" Value="12"></asp:ListItem>
@@ -21,7 +26,7 @@
                 <div class="row" style="margin-top: 20px">
                     <div class="col-md-3">
 			            <asp:Label runat="server" CssClass="signup-input-header">Select Minor</asp:Label>
-                        <asp:DropDownList ID="DropDownList1" runat="server" CssClass="signupDropDown" style="margin-top: 10px">
+                        <asp:DropDownList ID="minorDrop" runat="server" CssClass="signupDropDown" style="margin-top: 10px">
                             <asp:ListItem Enabled="true" Text="Minor" Value="-1"></asp:ListItem>
                             <asp:ListItem Text="TestMinor" Value="1"></asp:ListItem>
                             <asp:ListItem Text="MinorTest" Value="12"></asp:ListItem>
@@ -31,7 +36,7 @@
                 </div>
                 <div class="row" style="margin-top: 20px">
                     <div class="col-md-8">
-			            <asp:Button ID="Button1" runat="server" Text="Submit" Height="35px" CssClass="mybutton" />
+			            <asp:Button ID="Button1" runat="server" Text="Submit" Height="35px" CssClass="mybutton" OnClick="UpdateMajorMinor"/>
                     </div>
                 </div>
             </div>

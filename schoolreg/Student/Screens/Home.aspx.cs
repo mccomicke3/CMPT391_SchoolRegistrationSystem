@@ -49,8 +49,10 @@ namespace schoolreg.Student.Screens
             SqlDataReader myReader = cmd.ExecuteReader();
             myReader.Read();
             studentName.Text = myReader.GetString(0) + " " + myReader.GetString(1);
-            studentMajor.Text = myReader.GetString(3);
-            studentMinor.Text = myReader.GetString(4);
+            if(!myReader.IsDBNull(3))
+                studentMajor.Text = myReader.GetString(3);
+            if (!myReader.IsDBNull(4))
+                studentMinor.Text = myReader.GetString(4);
             studentGPA.Text = Convert.ToString(myReader.GetDouble(5));
             myReader.Close();
         }
@@ -72,6 +74,11 @@ namespace schoolreg.Student.Screens
         protected void GoToCourseHistory(object sender, EventArgs e)
         {
             Response.Redirect("~/Student/Screens/ViewCourses.aspx?ID=" + Request.QueryString["ID"]);
+        }
+
+        protected void GoToSelectMajMinor(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Student/Screens/SelectMajMin.aspx?ID=" + Request.QueryString["ID"]);
         }
     }
 }

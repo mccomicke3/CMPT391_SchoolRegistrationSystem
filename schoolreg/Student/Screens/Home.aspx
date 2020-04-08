@@ -61,7 +61,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-			                <asp:Label runat="server" CssClass="label-header" ID="studentMajor">TempMaj</asp:Label>
+			                <asp:Label runat="server" CssClass="label-header" ID="studentMajor">N/A</asp:Label>
                         </div>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-			                <asp:Label runat="server" CssClass="label-header" ID="studentMinor">TempMinor</asp:Label>
+			                <asp:Label runat="server" CssClass="label-header" ID="studentMinor">N/A</asp:Label>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-			                <asp:Label runat="server" CssClass="label-header">0</asp:Label>
+			                <asp:Label runat="server" CssClass="label-header">N/A</asp:Label>
                         </div>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-			                <asp:Label runat="server" CssClass="label-header" ID="studentGPA">2.0</asp:Label>
+			                <asp:Label runat="server" CssClass="label-header" ID="studentGPA">N/A</asp:Label>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                  <div class="col-lg-3">
                     <div class="row">
                         <div class="col-md-8">
-			                <asp:Button ID="Button1" runat="server" Text="Pick Major/Minor" Height="35px" CssClass="mybutton" PostBackUrl="~/Student/Screens/SelectMajMin.aspx" />
+			                <asp:Button ID="Button1" runat="server" Text="Pick Major/Minor" Height="35px" CssClass="mybutton" OnClick="GoToSelectMajMinor" />
                         </div>
                     </div>
                 </div>
