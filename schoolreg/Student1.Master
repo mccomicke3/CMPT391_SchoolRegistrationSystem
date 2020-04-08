@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="schoolreg.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Student1.master.cs" Inherits="schoolreg.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -46,15 +46,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">User's Name</a>
+                    <a class="navbar-brand" runat="server" href="~/" ID="masterName">User's Name</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Default">Home</a></li>
-                        <li><a runat="server" href="~/Instructor/Screens/InstrAccount">Account</a></li>
-                        <li><a runat="server" href="~/Instructor/Screens/Departments">Departments</a></li>
-                        <li><a runat="server" href="~/Instructor/Screens/Schedule">Schedule</a></li>
-                        <li><a runat="server" href="~/Warehouse">Courses</a></li>
+                        <li><a runat="server" href="~/Student/Screens/Home">Home</a></li>
+                        <li><a runat="server" href="~/Student/Screens/StudentAccount">Account</a></li>
+                        <li><a runat="server" href="~/Student/Screens/Schedule">Schedule</a></li>
+                        <li><a runat="server" href="~/Student/Screens/Enroll">Enroll</a></li>
+                        <li><a runat="server" href="~/Student/Screens/Drop">Drop</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -62,14 +62,6 @@
                                 <li><a runat="server" href="~/Account/Login">Log out</a></li>
                             </ul>
                         </AnonymousTemplate>
-                        <LoggedInTemplate>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
-                                <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                </li>
-                            </ul>
-                        </LoggedInTemplate>
                     </asp:LoginView>
                 </div>
             </div>

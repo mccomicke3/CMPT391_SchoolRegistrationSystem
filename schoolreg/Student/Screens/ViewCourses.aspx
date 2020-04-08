@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="ViewCourses.aspx.cs" Inherits="schoolreg.Student.Screens.ViewCourses" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Student1.Master" AutoEventWireup="true" CodeBehind="ViewCourses.aspx.cs" Inherits="schoolreg.Student.Screens.ViewCourses" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <asp:Label runat="server" ID="Label_title" CssClass="title-header">Course History</asp:Label>
@@ -9,13 +9,14 @@
             <div class="row">
                 <div class="row">
                     <div class="col-md-3">
-			            <asp:Label runat="server" CssClass="signup-input-header">Select Semester</asp:Label>
-                        <asp:DropDownList ID="dept" runat="server" CssClass="signupDropDown" style="margin-top: 10px">
-                            <asp:ListItem Enabled="true" Text="All" Value="-1"></asp:ListItem>
-                            <asp:ListItem Text="TestSem" Value="1"></asp:ListItem>
-                            <asp:ListItem Text="SemTest" Value="12"></asp:ListItem>
-                            <asp:ListItem Text="OneMore" Value="12"></asp:ListItem>
+			            <asp:Label runat="server" CssClass="signup-input-header" ID="testID">Select Semester</asp:Label>
+                        <asp:DropDownList ID="courseFilter" runat="server" CssClass="signupDropDown" style="margin-top: 10px">
                         </asp:DropDownList>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <asp:Button runat="server" OnClick="FilteredCourseHistory" Text="Filter" CssClass="mybutton" />
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6" style="margin-top: 20px">
@@ -23,7 +24,7 @@
                     <div class="row">
                         <asp:ListView ID="ListView1" runat="server">
                             <LayoutTemplate>
-                                <table style="border: solid 2px #333333; width: 600px" CellSpacing="0" CellPadding="3" rules="all">
+                                <table style="border: solid 2px #333333; width: 600px">
                                     <tr style="background-color: #333333; color: White;">
                                         <th>Course</th>
                                         <th>Year</th>

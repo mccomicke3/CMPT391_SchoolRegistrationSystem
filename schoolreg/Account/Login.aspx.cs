@@ -20,7 +20,7 @@ namespace schoolreg.Account
         protected void LogIn(object sender, EventArgs e)
         {
             //Connect to Databse
-            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-CHGMGOF;Initial Catalog=StudentRegistrationSystem;Integrated Security=True");
+            SqlConnection conn = new SqlConnection("Data Source=DESKTOP-3CQFTT1;Initial Catalog=StudentRegistrationSystem;Integrated Security=True;MultipleActiveResultSets=true");
             conn.Open();
 
             //Create query string and parameters
@@ -28,7 +28,7 @@ namespace schoolreg.Account
             SqlCommand getUser = new SqlCommand(query, conn);
             getUser.Parameters.AddWithValue("@username", Email.Text);
             getUser.Parameters.AddWithValue("@password", Password.Text);
-            FailureText.Text = Password.Text;
+            //FailureText.Text = Password.Text;
             ErrorMessage.Visible = true;
             //Execute Query
             SqlDataReader userReader = getUser.ExecuteReader();
@@ -41,7 +41,7 @@ namespace schoolreg.Account
                 {
                     conn.Close();
                     userReader.Close();
-                    Response.Redirect("/Student/Screens/Home.aspx");
+                    Response.Redirect("/Student/Screens/Home.aspx?ID=" + Email.Text);
                 }
                 else if (role.Equals("Instructor"))
                 {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="Enroll.aspx.cs" Inherits="schoolreg.Student.Screens.Enroll" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Student1.Master" AutoEventWireup="true" CodeBehind="Enroll.aspx.cs" Inherits="schoolreg.Student.Screens.Enroll" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <asp:Label runat="server" ID="Label_title" CssClass="title-header">Enroll</asp:Label>

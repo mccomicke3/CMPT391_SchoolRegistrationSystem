@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Student.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="schoolreg.Student.Screens.Home" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Student1.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="schoolreg.Student.Screens.Home" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <asp:Label runat="server" ID="Label_title" CssClass="title-header">Home</asp:Label>
@@ -8,7 +8,7 @@
         <div class="col-lg-12">
             <div class="row">
                 <div class="col-md-3">
-			        <asp:Label runat="server" CssClass="input-header">Name Name</asp:Label>
+			        <asp:Label runat="server" CssClass="input-header" ID="studentName">Name Name</asp:Label>
                 </div>
             </div>
             <div class="row">
@@ -17,14 +17,13 @@
                     <div class="row" style="margin-left: 2px">
                         <asp:ListView ID="ListView1" runat="server">
                             <LayoutTemplate>
-                                <table style="border: solid 2px #333333; width: 600px" CellSpacing="0" CellPadding="3" rules="all">
+                                <table style="border: solid 2px #333333; width: 600px">
                                     <tr style="background-color: #333333; color: White;">
                                         <th>Course</th>
                                         <th>Instructor</th>
                                         <th>Section</th>
-                                        <th>Building</th>
-                                        <th>Room</th>
-                                        <th>Timeslot</th>
+                                        <th>Classroom</th>
+                                        <th>Time</th>
                                     </tr>
                                     <tbody>
                                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server" />
@@ -35,20 +34,18 @@
                                   <tr>
                                     <td><%# Eval("Course")%></td>
                                     <td><%# Eval("Instructor")%></td>
-                                    <td><%# Eval("Section")%></td>
-                                    <td><%# Eval("Building")%></td>
-                                    <td><%# Eval("Room")%></td>
-                                    <td><%# Eval("Timeslot")%></td>
+                                    <td><%# Eval("SectionID")%></td>
+                                    <td><%# Eval("Classroom")%></td>
+                                    <td><%# Eval("Time")%></td>
                                   </tr>
                                </ItemTemplate>
                                <AlternatingItemTemplate>
                                   <tr style="background-color: #dadada;">
                                     <td><%# Eval("Course")%></td>
                                     <td><%# Eval("Instructor")%></td>
-                                    <td><%# Eval("Section")%></td>
-                                    <td><%# Eval("Building")%></td>
-                                    <td><%# Eval("Room")%></td>
-                                    <td><%# Eval("Timeslot")%></td>
+                                    <td><%# Eval("SectionID")%></td>
+                                    <td><%# Eval("Classroom")%></td>
+                                    <td><%# Eval("Time")%></td>
                                   </tr>
                                </AlternatingItemTemplate>
                         </asp:ListView>
@@ -64,7 +61,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-			                <asp:Label runat="server" CssClass="label-header">TempMaj</asp:Label>
+			                <asp:Label runat="server" CssClass="label-header" ID="studentMajor">N/A</asp:Label>
                         </div>
                     </div>
                 </div>
@@ -76,7 +73,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-			                <asp:Label runat="server" CssClass="label-header">TempMinor</asp:Label>
+			                <asp:Label runat="server" CssClass="label-header" ID="studentMinor">N/A</asp:Label>
                         </div>
                     </div>
                 </div>
@@ -90,7 +87,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-			                <asp:Label runat="server" CssClass="label-header">0</asp:Label>
+			                <asp:Label runat="server" CssClass="label-header">N/A</asp:Label>
                         </div>
                     </div>
                 </div>
@@ -102,7 +99,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-			                <asp:Label runat="server" CssClass="label-header">2.0</asp:Label>
+			                <asp:Label runat="server" CssClass="label-header" ID="studentGPA">N/A</asp:Label>
                         </div>
                     </div>
                 </div>
@@ -111,14 +108,14 @@
                 <div class="col-lg-3">
                     <div class="row">
                         <div class="col-md-8">
-			                <asp:Button ID="FirstButton" runat="server" Text="Course History" Height="35px" CssClass="mybutton" PostBackUrl="~/Student/Screens/ViewCourses.aspx" />
+			                <asp:Button ID="FirstButton" runat="server" Text="Course History" Height="35px" CssClass="mybutton" OnClick="GoToCourseHistory"/>
                         </div>
                     </div>
                 </div>
                  <div class="col-lg-3">
                     <div class="row">
                         <div class="col-md-8">
-			                <asp:Button ID="Button1" runat="server" Text="Pick Major/Minor" Height="35px" CssClass="mybutton" PostBackUrl="~/Student/Screens/SelectMajMin.aspx" />
+			                <asp:Button ID="Button1" runat="server" Text="Pick Major/Minor" Height="35px" CssClass="mybutton" OnClick="GoToSelectMajMinor" />
                         </div>
                     </div>
                 </div>
