@@ -31,6 +31,15 @@ namespace schoolreg.Instructor.Screens {
         protected global::System.Web.UI.WebControls.DropDownList dept;
         
         /// <summary>
+        /// SelectCourse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList SelectCourse;
+        
+        /// <summary>
         /// ListView1 control.
         /// </summary>
         /// <remarks>
@@ -40,12 +49,12 @@ namespace schoolreg.Instructor.Screens {
         protected global::System.Web.UI.WebControls.ListView ListView1;
         
         /// <summary>
-        /// FirstButton control.
+        /// submitGrades control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button FirstButton;
+        protected global::System.Web.UI.WebControls.Button submitGrades;
     }
 }

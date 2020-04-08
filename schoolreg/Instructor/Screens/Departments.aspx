@@ -9,11 +9,16 @@
             <div class="row">
                 <div class="col-md-3">
 			        <asp:Label runat="server" CssClass="signup-input-header">Select Department</asp:Label>
+                    <!--
                     <asp:DropDownList ID="dept" runat="server" CssClass="signupDropDown" style="margin-top: 10px">
                         <asp:ListItem Enabled="true" Text="Department" Value="-1"></asp:ListItem>
                         <asp:ListItem Text="TestDep" Value="1"></asp:ListItem>
                         <asp:ListItem Text="DepTest" Value="12"></asp:ListItem>
                         <asp:ListItem Text="OneMore" Value="12"></asp:ListItem>
+                    </asp:DropDownList>
+                    -->
+                    <asp:DropDownList ID="SelectDept" runat="server" OnSelectedIndexChanged="SelectDept_SelectedIndexChanged" AutoPostBack="true" CssClass="signup-input-header" Width="75px" style="margin-top: 10px">
+                        <asp:ListItem Text="Dept" Enabled="true"/>
                     </asp:DropDownList>
                 </div>
                 <div class="col-md-5">
@@ -24,7 +29,7 @@
                                 <table style="border: solid 2px #333333; width: 400px" CellSpacing="0" CellPadding="3" rules="all">
                                     <tr style="background-color: #333333; color: White;">
                                         <th>Name</th>
-                                        <th>Email</th>
+                                        <th>Salary</th>
                                         <th>Phone</th>
                                     </tr>
                                     <tbody>
@@ -35,14 +40,14 @@
                                <ItemTemplate>
                                   <tr>
                                      <td><%# Eval("Name")%></td>
-                                     <td><%# Eval("Email")%></td>
+                                     <td><%# Eval("Salary")%></td>
                                      <td><%# Eval("Phone")%></td>
                                   </tr>
                                </ItemTemplate>
                                <AlternatingItemTemplate>
                                   <tr style="background-color: #dadada;">
                                      <td><%# Eval("Name")%></td>
-                                     <td><%# Eval("Email")%></td>
+                                     <td><%# Eval("Salary")%></td>
                                      <td><%# Eval("Phone")%></td>
                                   </tr>
                                </AlternatingItemTemplate>
@@ -54,7 +59,7 @@
                         <asp:Label runat="server" CssClass="signup-input-header">Deptarment Head</asp:Label>
                     </div>
                     <div class="row">
-                        <asp:Label runat="server" CssClass="label-header">Name Name</asp:Label>
+                        <asp:Label ID="deptHead" runat="server" CssClass="label-header"></asp:Label>
                     </div>
                 </div>
             </div>

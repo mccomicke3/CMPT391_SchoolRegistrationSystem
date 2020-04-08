@@ -13,10 +13,7 @@
             </div>
 			<div class="row">
                 <div class="col-md-6">
-                    <asp:TextBox runat="server" ID="FacilitatorFirst" CssClass="inputfields" Width="200px" Text="first name"/>
-                </div>
-                <div>
-                    <asp:Button ID="FirstButton" runat="server" Text="Rename" Height="35px" CssClass="mybutton"  />
+                    <asp:TextBox runat="server" ID="FacilitatorFirst" CssClass="inputfields" Width="200px"/>
                 </div>
 			</div>
             <div class="row">
@@ -26,10 +23,10 @@
             </div>
 			<div class="row">
                 <div class="col-md-6">
-                    <asp:TextBox runat="server" ID="FacilitatorLast" CssClass="inputfields" Width="200px" />
+                    <asp:TextBox runat="server" ID="FacilitatorLast" CssClass="inputfields" Width="200px"/>
                 </div>
                 <div>
-                    <asp:Button ID="LastButton" runat="server" Text="Rename" Height="35px" CssClass="mybutton"  />
+                    <asp:Button ID="LastButton" OnClick="LastButton_Click" runat="server" Text="Rename" Height="35px" CssClass="mybutton"  />
                 </div>
 			</div>
         </div>
@@ -41,7 +38,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-			        <asp:Label runat="server" CssClass="label-header">Date of Birth</asp:Label>
+			        <asp:Label ID="dobLabel" runat="server" CssClass="label-header"/>
                 </div>
             </div>
             <div class="row" style="margin-top: 50px">
@@ -51,7 +48,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-			        <asp:Label runat="server" CssClass="label-header">Salary</asp:Label>
+			        <asp:Label ID="salaryLabel" runat="server" CssClass="label-header"/>
                 </div>
             </div>
         </div>
@@ -63,7 +60,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-			        <asp:Label runat="server" CssClass="label-header">Dept</asp:Label>
+			        <asp:Label ID="deptLabel" runat="server" CssClass="label-header"/>
                 </div>
             </div>
             <div class="row" style="margin-top: 50px">
@@ -73,7 +70,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-			        <asp:Label runat="server" CssClass="label-header">Building</asp:Label>
+			        <asp:Label ID="buildingLabel" runat="server" CssClass="label-header"/>
                 </div>
             </div>
         </div>
