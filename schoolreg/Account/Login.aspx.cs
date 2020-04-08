@@ -28,7 +28,7 @@ namespace schoolreg.Account
             SqlCommand getUser = new SqlCommand(query, conn);
             getUser.Parameters.AddWithValue("@username", Email.Text);
             getUser.Parameters.AddWithValue("@password", Password.Text);
-            FailureText.Text = Password.Text;
+            //FailureText.Text = Password.Text;
             ErrorMessage.Visible = true;
             //Execute Query
             SqlDataReader userReader = getUser.ExecuteReader();
