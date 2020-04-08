@@ -10,11 +10,16 @@
                 <div class="row">
                     <div class="col-md-3">
 			            <asp:Label runat="server" CssClass="signup-input-header">Select Course</asp:Label>
+                        <!--
                         <asp:DropDownList ID="dept" runat="server" CssClass="signupDropDown" style="margin-top: 10px">
                             <asp:ListItem Enabled="true" Text="Course" Value="-1"></asp:ListItem>
                             <asp:ListItem Text="TestCourse" Value="1"></asp:ListItem>
                             <asp:ListItem Text="CourseTest" Value="12"></asp:ListItem>
                             <asp:ListItem Text="OneMore" Value="12"></asp:ListItem>
+                        </asp:DropDownList>
+                        -->
+                        <asp:DropDownList ID="SelectCourse" runat="server" OnSelectedIndexChanged="SelectCourse_SelectedIndexChanged" AutoPostBack="true" CssClass="signupDropDown" Width="75px" style="margin-top: 10px">
+                            <asp:ListItem Text="Course" Enabled="true"/>
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -50,7 +55,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div style="margin-top:20px">
-                                <asp:Button ID="FirstButton" runat="server" Text="Submit" Height="35px" CssClass="mybutton"  />
+                                <asp:Button ID="submitGrades" OnClick="submitGrades_Click" runat="server" Text="Submit" Height="35px" CssClass="mybutton"  />
                             </div>
                         </div>
                     </div>

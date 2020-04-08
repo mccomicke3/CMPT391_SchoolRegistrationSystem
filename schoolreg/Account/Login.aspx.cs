@@ -36,7 +36,7 @@ namespace schoolreg.Account
             //If a user was found, check for admin or recepionist
             while (userReader.Read())
             {
-                string role = IsInRole(conn, userReader.GetString(0));
+                string role = IsInRole(conn, userReader);
                 if (role.Equals("Student"))
                 {
                     conn.Close();
@@ -63,8 +63,10 @@ namespace schoolreg.Account
             return;
         }
 
-        protected String IsInRole(SqlConnection conn, String UserID)
+        protected String IsInRole(SqlConnection conn, SqlDataReader userReader)
         {
+            string UserID = userReader.GetString(0);
+            userReader.Close();
             string query = "select Name from [Roles] where ID in (select RoleID from UserRoles1 where UserID = @username)";
             SqlCommand getRole = new SqlCommand(query, conn);
             getRole.Parameters.AddWithValue("@username", UserID);

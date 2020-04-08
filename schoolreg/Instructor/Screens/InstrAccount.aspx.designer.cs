@@ -31,15 +31,6 @@ namespace schoolreg.Instructor.Screens {
         protected global::System.Web.UI.WebControls.TextBox FacilitatorFirst;
         
         /// <summary>
-        /// FirstButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button FirstButton;
-        
-        /// <summary>
         /// FacilitatorLast control.
         /// </summary>
         /// <remarks>
@@ -56,5 +47,41 @@ namespace schoolreg.Instructor.Screens {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button LastButton;
+        
+        /// <summary>
+        /// dobLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label dobLabel;
+        
+        /// <summary>
+        /// salaryLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label salaryLabel;
+        
+        /// <summary>
+        /// deptLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label deptLabel;
+        
+        /// <summary>
+        /// buildingLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label buildingLabel;
     }
 }

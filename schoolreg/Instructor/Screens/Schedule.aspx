@@ -64,38 +64,25 @@
                                </AlternatingItemTemplate>
                         </asp:ListView>
                     </div>
+                    <!--
                     <div class="row">
                         <asp:Label runat="server">Add new class</asp:Label>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <asp:DropDownList ID="SelectDept" runat="server" CssClass="signupDropDown" Width="75px" style="margin-top: 10px">
-                                <asp:ListItem Enabled="true" Text="BIOL" Value="-1"></asp:ListItem>
-                                <asp:ListItem Text="CMPT" Value="1"></asp:ListItem>
-                                <asp:ListItem Text="ENGL" Value="2"></asp:ListItem>
-                                <asp:ListItem Text="HUMN" Value="3"></asp:ListItem>
-                                <asp:ListItem Text="MATH" Value="4"></asp:ListItem>
-                                <asp:ListItem Text="PHSC" Value="5"></asp:ListItem>
-                                <asp:ListItem Text="PSYC" Value="6"></asp:ListItem>
-                                <asp:ListItem Text="SOCI" Value="7"></asp:ListItem>
+                            <asp:DropDownList ID="SelectDept" runat="server" OnSelectedIndexChanged="SelectDept_SelectedIndexChanged" AutoPostBack="true" CssClass="signupDropDown" Width="75px" style="margin-top: 10px">
+                                <asp:ListItem Text="Dept" Enabled="true"/>
                             </asp:DropDownList>
-                            <asp:DropDownList ID="SelectNumber" runat="server" CssClass="signupDropDown" Width="65px" style="margin-top: 10px">
-                                <asp:ListItem Enabled="true" Text="99" Value="-1"></asp:ListItem>
-                                <asp:ListItem Text="101" Value="1"></asp:ListItem>
-                                <asp:ListItem Text="102" Value="2"></asp:ListItem>
-                                <asp:ListItem Text="103" Value="3"></asp:ListItem>
-                                <asp:ListItem Text="150" Value="4"></asp:ListItem>
-                                <asp:ListItem Text="200" Value="5"></asp:ListItem>
-                                <asp:ListItem Text="391" Value="6"></asp:ListItem>
-                                <asp:ListItem Text="399" Value="7"></asp:ListItem>
+                            <asp:DropDownList ID="SelectNumber" runat="server" OnSelectedIndexChanged="SelectNumber_SelectedIndexChanged" AutoPostBack="true" CssClass="signupDropDown" Width="65px" style="margin-top: 10px">
+                                <asp:ListItem Text="Num" Enabled="true"/>
                             </asp:DropDownList>
                             <asp:DropDownList ID="SelectSection" runat="server" CssClass="signupDropDown" Width="75px" style="margin-top: 10px">
-                                <asp:ListItem Enabled="true" Text="AS01" Value="-1"></asp:ListItem>
-                                <asp:ListItem Text="AS02" Value="1"></asp:ListItem>
+                                <asp:ListItem Enabled="true" Text="Sect" Value="-1"></asp:ListItem>
                             </asp:DropDownList>
-                            <asp:Button ID="AddClass" OnClick="AddClass_Click" runat="server" Text="Add Class" Height="35px" CssClass="mybutton"/>
+                            <asp:Button ID="addClass" runat="server" Text="Add Button" OnClick="addClass_Click" Height="35px" CssClass="mybutton"/>
                         </div>
                     </div>
+                    -->
                 </div>
                 </div>
             </div>

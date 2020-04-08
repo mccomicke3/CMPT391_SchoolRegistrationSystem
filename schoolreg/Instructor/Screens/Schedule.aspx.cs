@@ -12,7 +12,6 @@ namespace schoolreg.Instructor.Screens
     public partial class Schedule : System.Web.UI.Page
     {
         static string connectionString = "Data Source=DESKTOP-CHGMGOF;Initial Catalog=StudentRegistrationSystem;Integrated Security=True";
-        SqlConnection cnn = new SqlConnection(connectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,33 +22,168 @@ namespace schoolreg.Instructor.Screens
             table.Columns.Add("Building");
             table.Columns.Add("Room");
             table.Columns.Add("Timeslot");
-            table.Rows.Add("TestClass", "3", "Sec1", "Building1", "234", "MonWeFri 9:00AM-9:50AM");
-            table.Rows.Add("TestClass2", "3", "Sec2", "Building2", "314", "TuesThur 9:00AM - 10:20AM");
-            table.Rows.Add("TestClass3", "3", "Sec3", "Building3", "134", "MonWeFri 10:00AM - 10:50AM");
-            table.Rows.Add("TestClass4", "3", "Sec4", "Building4", "106", "TueThur 10:30AM - 11:50AM");
+
+            insertScheduleData(table);
+            
             ListView1.DataSource = table;
             ListView1.DataBind();
         }
 
-        protected void AddClass_Click(object sender, EventArgs e)
+
+        protected void insertScheduleData(DataTable table)
         {
-            try
+            //get the data
+            SqlConnection cnn = new SqlConnection(connectionString);
+            DataSet ds = new DataSet();
+            SqlCommand cmd = new SqlCommand
             {
-                using (cnn)
+                Connection = cnn,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "getInstructorSchedule"
+            };
+            cmd.Parameters.AddWithValue("@instructorID", "0-12345678");
+            cmd.Parameters.AddWithValue("@semester", "Fall");
+            cmd.Parameters.AddWithValue("@year", 2020);
+            cnn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(ds);
+
+            //operate on data
+            foreach (DataTable tab in ds.Tables)
+            {
+                foreach (DataRow row in tab.Rows)
                 {
-                    string query = @"INSERT INTO";
-                    SqlCommand cmd = new SqlCommand(query, cnn);
-                    cnn.Open();
-
-
-                    
-                    cnn.Close();
+                    table.Rows.Add(row[0], row[1], row[2], row[3], row[4], formatTimeslot(row[5].ToString()));
                 }
             }
-            catch(Exception ex)
+            //close the connection
+            cnn.Close();
+        }
+
+        protected String formatTimeslot(String timeslot) { return timeslot.Substring(0, 3) + " " + timeslot.Substring(3,4) + "0-" + timeslot.Substring(7,4) + "0"; }
+
+        // loads page, gets all departments for dropdown
+        protected void loadClassAdd()
+        {
+            SqlConnection cnn = new SqlConnection(connectionString);
+            DataSet ds = new DataSet();
+            SqlCommand cmd = new SqlCommand
             {
-                System.Diagnostics.Debug.WriteLine("Exception: " + ex);
+                Connection = cnn,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "getDepartments"
+            };
+            cnn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(ds);
+           
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach(DataRow row in table.Rows)
+                {
+                    foreach (DataColumn col in table.Columns)
+                    {
+                        if (!SelectDept.Items.Contains(new ListItem(row[col].ToString())))
+                        {
+                            SelectDept.Items.Add(row[col].ToString());
+                        }
+                    }
+                }
             }
+            cnn.Close();
+        }
+
+        // gets all course numbers associated with selected depatment
+        protected void SelectDept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectDept.Items[0].Enabled = false;
+
+            SqlConnection cnn = new SqlConnection(connectionString);
+            DataSet ds = new DataSet();
+            SqlCommand cmd = new SqlCommand
+            {
+                Connection = cnn,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "getCourseNumbers"
+            };
+            cmd.Parameters.AddWithValue("@dept", SelectDept.SelectedValue);
+            cnn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(ds);
+
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    foreach (DataColumn col in table.Columns)
+                    {
+                        if (!SelectNumber.Items.Contains(new ListItem(row[col].ToString())))
+                        {
+                            SelectNumber.Items.Add(row[col].ToString());
+                        }
+                    }
+                }
+            }
+            cnn.Close();
+        }
+
+        // gets all sections associated with selected department and course number
+        protected void SelectNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectNumber.Items[0].Enabled = false;
+
+            SqlConnection cnn = new SqlConnection(connectionString);
+            DataSet ds = new DataSet();
+            SqlCommand cmd = new SqlCommand
+            {
+                Connection = cnn,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "getSections"
+            };
+            cmd.Parameters.AddWithValue("@dept", SelectDept.SelectedValue);
+            cmd.Parameters.AddWithValue("@courseNum", SelectNumber.SelectedValue);
+            cnn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(ds);
+
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    foreach (DataColumn col in table.Columns)
+                    {
+                        if (!SelectSection.Items.Contains(new ListItem(row[col].ToString())))
+                        {
+                            SelectSection.Items.Add(row[col].ToString());
+                        }
+                    }
+                }
+            }
+            cnn.Close();
+        }
+        
+        // get all timeslots
+        protected void SelectTimeslot_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection cnn = new SqlConnection(connectionString);
+            DataSet ds = new DataSet();
+            SqlCommand cmd = new SqlCommand
+            {
+                Connection = cnn,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "addClass",
+            };
+            cmd.Parameters.AddWithValue("@dept", SelectDept.SelectedValue);
+            cmd.Parameters.AddWithValue("@courseNum", SelectNumber.SelectedValue);
+            cnn.Open();
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(ds);
+        }
+
+        // add new class according to chosen dept, course num and timeslot
+        protected void addClass_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
